@@ -21,6 +21,8 @@ private slots:
     void on_start_preview_clicked();
     void on_stop_preview_clicked();
 
+    void on_capture_stateChanged(int arg1);
+
 signals:
     void sig_camera_cmd(sys_cmd_resp *);
 

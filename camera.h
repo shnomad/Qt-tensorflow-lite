@@ -7,7 +7,7 @@
 #include <opencv2/highgui.hpp>
 #include <opencv2/imgproc.hpp>
 #include "sys_cmd_resp.h"
-
+#include "cli_monitor.h"
 
 QT_BEGIN_NAMESPACE
 
@@ -37,7 +37,9 @@ private:
     VideoCapture cap;
     Mat frame;
     QImage qt_image;
+    bool preview_image_capture = false;
 
+    CLI_monitor *m_console_command;
 };
 
 #endif // CAMERA_H

@@ -17,12 +17,15 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
     camera.cpp \
+    cli_monitor.cpp \
     main.cpp \
     mainwindow.cpp \
     sys_cmd_resp.cpp
 
 HEADERS += \
     camera.h \
+    cli_monitor.h \
+    common.h \
     mainwindow.h \
     sys_cmd_resp.h
 

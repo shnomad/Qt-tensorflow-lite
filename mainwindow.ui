@@ -53,6 +53,30 @@
      <string/>
     </property>
    </widget>
+   <widget class="QCheckBox" name="capture">
+    <property name="geometry">
+     <rect>
+      <x>100</x>
+      <y>290</y>
+      <width>151</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>15</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QCheckBox::indicator {
+     width: 30px;
+     height: 30px;
+ }</string>
+    </property>
+    <property name="text">
+     <string>Capture</string>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">

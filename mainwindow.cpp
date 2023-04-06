@@ -19,21 +19,48 @@ MainWindow::MainWindow(QWidget *parent)
     {
           ui->display_preview->setPixmap(QPixmap::fromImage(image));
     });
-}
 
-MainWindow::~MainWindow()
-{
-    delete ui;
+    /*push button */
+    ui->start_preview->setStyleSheet("default");
+    ui->stop_preview->setStyleSheet("default");
+    ui->start_preview->setEnabled(true);
+    ui->stop_preview->setEnabled(false);
 }
 
 void MainWindow::on_start_preview_clicked()
 {
+//    ui->start_preview->setStyleSheet("background-color:rgb(244,0,0);border-style:insert");
+    ui->start_preview->setStyleSheet("border:2px solid #ff0000;");
+    ui->stop_preview->setStyleSheet("default");
+    ui->start_preview->setEnabled(false);
+    ui->stop_preview->setEnabled(true);
+
     comm_cmd->m_camera_cmd = sys_cmd_resp::CMD_CAMERA_PREVIEW_START;
     emit sig_camera_cmd(comm_cmd);
 }
 
 void MainWindow::on_stop_preview_clicked()
 {
+    ui->start_preview->setStyleSheet("default");
+    ui->stop_preview->setStyleSheet("default");
+    ui->start_preview->setEnabled(true);
+    ui->stop_preview->setEnabled(false);
+
     comm_cmd->m_camera_cmd = sys_cmd_resp::CMD_CAMERA_PREVIEW_STOP;
     emit sig_camera_cmd(comm_cmd);
+}
+
+void MainWindow::on_capture_stateChanged(int arg1)
+{
+    if(arg1)
+        comm_cmd->m_camera_cmd = sys_cmd_resp::CMD_CAMERA_IMAGE_CAPTRUE_ON;
+    else
+        comm_cmd->m_camera_cmd = sys_cmd_resp::CMD_CAMERA_IMAGE_CAPTRUE_OFF;
+
+    emit sig_camera_cmd(comm_cmd);
+}
+
+MainWindow::~MainWindow()
+{
+    delete ui;
 }
